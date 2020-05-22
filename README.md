@@ -18,6 +18,7 @@
 ## 0. [Basic RNN Model](https://github.com/hccho2/RNN-Tutorial/tree/master/0.%20Basic)
 Tensorflow의 다음과 같은 API를 사용하여 기본적인 RNN 모델의 작동 원리를 알 수 있다.
 - Tensorflow RNN 기초, Embedding, Multi Layer RNN
+- Bidirectional RNN
 - BasicDecoder, Sampler, dynamic_decode
 - seq2seq(Encoder-Decoder), Attention
 
