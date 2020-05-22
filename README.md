@@ -2,7 +2,7 @@
 
 <p align="center"><img width="700" src="TF2-RNN.png" />  </p>
 
-- `Tensorflow 2 RNN-tutorial` is a tutorial for RNN model developers using Tensorflow.
+- This repository is a tutorial for RNN model developers using Tensorflow.
 - 이 tutorial은 tensorflow 1.x 용 [RNN Tutorial](https://github.com/hccho2/Tensorflow-RNN-Tutorial)을 Tensorflow 2에 맞게 수정한 것이다.
 - 이 tutorial 코드를 실행하기 위해서는 Tensorflow 2.2.0, tensorflow_addons 0.10.0 필요
 - TensorFlow SIG(Special Interest Group) Addons은 Tensorflow에서 사용할 수 없는 기능을 추가로 구현한 API를 모아놓은 것이다. 
@@ -17,14 +17,12 @@
 
 ## 0. [Basic RNN Model](https://github.com/hccho2/RNN-Tutorial/tree/master/0.%20Basic)
 Tensorflow의 다음과 같은 API를 사용하여 기본적인 RNN 모델의 작동 원리를 알 수 있다.
-- dynamic_decode를 사용하여 Tensorflow RNN모델 사용법에 관해 알아본다.
-- BasicRNNCell, BasicLSTMCell, GRUCell
-- TrainingHelper, GreedyEmbeddingHelper
-- BasicDecoder
-- dynamic_decode
+- Tensorflow RNN 기초, Embedding, Multi Layer RNN
+- BasicDecoder, Sampler, dynamic_decode
+- seq2seq(Encoder-Decoder), Attention
 
 ### 1. [User Defined RNNWrapper](https://github.com/hccho2/RNN-Tutorial/tree/master/1.%20RNNWrapper) 
-
+- User Defined RNNCell
 
 
 
