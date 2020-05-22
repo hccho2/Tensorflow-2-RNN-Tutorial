@@ -1,4 +1,10 @@
-# Tensorflow에서 tf.contrib.seq2seq.dynamic_decode를 어떻게 사용해야 하는지 설명.
+# Tensorflow에서 RNN관련 API의 사용법에 대해 알아보자.
+- 먼저 rnn cell과 rnn의 차이점을 살펴보자.
+- Tensorflow에서 rnn cell이 있고, 이 rnn cell을 연결하여 layer로 만든 것이 rnn이다. 
+![decode](./rnncell.png)
+
+
+
 아래 그림은 tf.nn.dynamic_rnn과 tf.contrib.seq2seq.dynamic_decode의 입력 구조를 비교한 그림이다.
 
 ![decode](./dynamic-rnn-decode.png)
