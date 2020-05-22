@@ -1,6 +1,6 @@
 ## Tensorflow RNN-tutorial
 
-<p align="center"><img width="700" src="TF-RNN.png" />  </p>
+<p align="center"><img width="700" src="TF2-RNN.png" />  </p>
 
 `Tensorflow RNN-tutorial` is a tutorial for RNN model developers using Tensorflow.
 
