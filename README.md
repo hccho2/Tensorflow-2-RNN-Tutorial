@@ -15,21 +15,21 @@
 - 또한, RNNCell, Sampler를 custumization하여 User Defined RNNCell, Sampler를 만들어 보자.
 
 
-## 0. [Basic RNN Model](https://github.com/hccho2/RNN-Tutorial/tree/master/0.%20Basic)
+## 1. [Basic RNN Model](https://github.com/hccho2/RNN-Tutorial/tree/master/0.%20Basic)
 Tensorflow의 다음과 같은 API를 사용하여 기본적인 RNN 모델의 작동 원리를 알 수 있다.
 - Tensorflow RNN 기초, Embedding, Multi Layer RNN
 - Bidirectional RNN
 - BasicDecoder, Sampler, dynamic_decode
 - seq2seq(Encoder-Decoder), Attention
 
-### 1. [User Defined RNNWrapper](https://github.com/hccho2/RNN-Tutorial/tree/master/1.%20RNNWrapper) 
+### 2. [User Defined RNNWrapper](https://github.com/hccho2/RNN-Tutorial/tree/master/1.%20RNNWrapper) 
 - User Defined RNNCell
 
 
 
-### 2. [User Defined Helper](https://github.com/hccho2/Tensorflow-RNN-Tutorial/tree/master/2.%20User%20Defined%20Helper)
+### 3. [User Defined Helper](https://github.com/hccho2/Tensorflow-RNN-Tutorial/tree/master/2.%20User%20Defined%20Helper)
 
-#### 3. [User Defined Decoder](https://github.com/hccho2/Tensorflow-RNN-Tutorial/tree/master/3.%20User%20Defined%20Decoder)
+### 4. [User Defined Decoder](https://github.com/hccho2/Tensorflow-RNN-Tutorial/tree/master/3.%20User%20Defined%20Decoder)
 
 
-#### 4. [Attention with Tensorflow](https://github.com/hccho2/Tensorflow-RNN-Tutorial/tree/master/4.%20Attention%20with%20Tensorflow)
+### 5. [Attention with Tensorflow](https://github.com/hccho2/Tensorflow-RNN-Tutorial/tree/master/4.%20Attention%20with%20Tensorflow)
