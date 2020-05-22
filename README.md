@@ -2,8 +2,9 @@
 
 <p align="center"><img width="700" src="TF2-RNN.png" />  </p>
 
-- `Tensorflow RNN-tutorial` is a tutorial for RNN model developers using Tensorflow.
+- `Tensorflow 2 RNN-tutorial` is a tutorial for RNN model developers using Tensorflow.
 - 이 tutorial 코드를 실행하기 위해서는 Tensorflow 2.2.0, tensorflow_addons 0.10.0 필요
+- 
 
 
 ## 0. [Basic RNN Model](https://github.com/hccho2/RNN-Tutorial/tree/master/0.%20Basic)
