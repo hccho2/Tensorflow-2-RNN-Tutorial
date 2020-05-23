@@ -80,6 +80,7 @@ print('loss: ', loss.numpy())
 ```
 - train이 끝난 후, test를 위해서는 `tfa.GreedyEmbeddingSampler`를 사용하면 된다.
 ```
+sampler = tfa.seq2seq.GreedyEmbeddingSampler()
 decoder = tfa.seq2seq.BasicDecoder(decoder_cell, sampler, output_layer=projection_layer,maximum_iterations=seq_length)
 outputs, last_state, last_sequence_lengths = decoder(embedding.weights,initial_state=init_state,
                                                      start_tokens=tf.tile([SOS_token], [batch_size]), end_token=EOS_token,training=False)   
