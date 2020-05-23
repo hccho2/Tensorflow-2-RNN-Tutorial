@@ -134,7 +134,7 @@ initial_state =  [encoder_outputs,encoder_outputs]  # (h,c)모두에 encoder_out
 decoder_outputs = decoder(decoder_inputs, initial_state) # 이 decoder_outputs에 FC-Softmax를 더해주면 최종적인 모델이 완성된다.
 print(decoder_outputs)
 ```
-- 위 코드는 추가적인 후처리가 좀 필요하다. decoder의 출력에 Fully Connected Layer - Softmax를 추가해 주어야 한다. Decoder로 `tfa.seq2seq.BasicDecoder`를 사용하면 이런 작업이 간단해 진다.
+- 위 코드는 추가적인 후처리가 좀 필요하다. decoder의 출력(`decoder_outputs`)에 Fully Connected Layer - Softmax를 추가해 주어야 한다. Decoder로 `tfa.seq2seq.BasicDecoder`를 사용하면 이런 작업이 간단해 진다.
 
 - 이제 Decoder 구현을 `tfa.seq2seq.BasicDecoder`로 수정해 보자. 수정되는 부분이 많지 않다.
 ```
