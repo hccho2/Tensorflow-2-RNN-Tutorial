@@ -98,8 +98,26 @@ outputs, last_state, last_sequence_lengths = decoder(embedding.weights,initial_s
 	* TTS에서는 주어진 문장을 음성으로 변환해야 하는데, text로된 문장을 Encoder가 처리하고 Decoder가 음성을 생성하는 역할을 한다.
 ![decode](./Encoder_Decoder.png)
 
+- Encoder-Decoder 구조를 Tensorflow로 구현하기 위해서는 Encoder, Decoder를 위해서 각각 하나씩 만들면 된다.
+- 다음은 pseudo code이다.
+
+```
+batch_size = 3
+seq_length = 5
+input_dim = 7
+hidden_dim = 4
+
+encoder_cell = tf.keras.layers.LSTMCell(hidden_dim)  # RNN Cell
+encoder = tf.keras.layers.RNN(encoder_cell,return_sequences=False) # RNN
 
 
+inputs = tf.random.normal([batch_size, seq_length, input_dim])
+
+
+inputs = tf.random.normal([batch_size, seq_length, input_dim])  # Embedding을 거친 data라 가정.
+encoder_outputs = encoder(inputs) # encoder의 init_state을 명시적으로 전달하지 않으면, zero값이 들어간다.  ===> (batch_size, hidden_dim)
+
+```
 
 
 

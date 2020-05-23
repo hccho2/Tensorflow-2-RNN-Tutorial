@@ -22,7 +22,7 @@ rnn = tf.keras.layers.RNN(rnn_cell,return_sequences=True) # RNN
 initial_state =  rnn.get_initial_state(inputs)  # RNN의 initial state를 0으로 만든다. [batch_size, hidden_dim]
 
 inputs = tf.random.normal([batch_size, seq_length, input_dim])  # Embedding을 거친 data라 가정.
-output = rnn(inputs,initial_state)
+outputs = rnn(inputs,initial_state)
 
 ```
 - inital_state는 주로 0으로 만들기도 하고, 다른 정보가 있으면 넣을 수도 있다. inital_state의 shape은 [batch_size, hidden_dim].
