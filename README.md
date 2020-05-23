@@ -28,5 +28,5 @@ RNN모델의 기본적인 구조와 이를 위한 Tensorflow API를 살펴본다
 - Encoder-Decoder(seq2seq) 모델 
 
 
-### 3. [Attention](https://github.com/hccho2/Tensorflow-RNN-Tutorial/tree/master/2.%20User%20Defined%20Helper)
+### 3. [Attention](https://github.com/hccho2/Tensorflow-2-RNN-Tutorial/tree/master/2.%20Attention)
 
