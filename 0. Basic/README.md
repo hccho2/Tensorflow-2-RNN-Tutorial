@@ -61,7 +61,7 @@ rnn = tf.keras.layers.LSTM(4,return_sequences=True, return_state=True, name='enc
 cells = [tf.keras.layers.LSTMCell(hidden_dim),tf.keras.layers.LSTMCell(hidden_dim*2)]
 rnn = tf.keras.layers.RNN(cells,return_sequences=True)
 ``` 
-- RNN Layer를 단순히 연결하지 않고, RNN Layer사이에 Dense Layer, BatchNormalization, Dropout을 넣어야 하는 경우는 다음과 같이 처리하면 된다.
+- RNN Layer를 단순히 연결하지 않고, RNN Layer사이에 Dense Layer, BatchNormalization, DropOut을 넣어야 하는 경우는 다음과 같이 처리하면 된다.
 - layer들을 연결하기 위해 `tf.keras.models.Sequential`을 사용하면 된다.
 ```
 import tensorflow as tf
@@ -79,7 +79,7 @@ lstm_layer2 = tf.keras.layers.RNN(tf.keras.layers.LSTMCell(hidden_dim),return_se
 model = tf.keras.models.Sequential([lstm_layer1, tf.keras.layers.BatchNormalization(),lstm_layer2, tf.keras.layers.Dense(output_size)])
 
 inputs = tf.random.normal([batch_size, seq_length, input_dim])
-outputs = model(inputs)
+outputs = model(inputs,training=True)
 print(outputs) 
 ```
 
