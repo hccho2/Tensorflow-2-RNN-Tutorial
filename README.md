@@ -24,9 +24,8 @@ RNN모델의 기본적인 구조와 이를 위한 Tensorflow API를 살펴본다
 
 ### 2. [Tensorflow Addons](https://github.com/hccho2/Tensorflow-2-RNN-Tutorial/tree/master/1.%20Tensorflow-Addons) 
 - Tensorflow Addons
-- Encoder-Decoder(seq2seq) 모델
 - Decoder, Sampler
-- Attention
+- Encoder-Decoder(seq2seq) 모델 & Attention
 
 
 
