@@ -32,7 +32,7 @@ output = rnn(inputs,initial_state)
 ### Embedding
 - Embedding은 모델이 다루고자 하는 단어(형태소), character, 자음/모음 등을 수치적인 1차원 vector로 만드는 과정을 말한다.
 - 예를 들어, 단어를 몇 차원 vector로 만들 것인가를 미리 정해주어야 한다. 이를 embedding dimension이라 하는데, hyperparameter로 미리 정해주어야 한다. 이것이 위에서 언급한 input_dim이다.
-- 단어를 Embedding하는 것 자체를 목적으로 하는 모델도 있다. Skip-Gram, CBOW, ELMo, BERT같은 것들이다. 이런 모델로 통해서 잘 만들어진 Embedding이 있다면 불러와서 사용할 수도 있다.
+- 단어를 Embedding하는 것 자체를 목적으로 하는 모델도 있다. Skip-Gram, CBOW, ELMo, BERT같은 것들이다. 이런 모델로 통해서 잘 만들어진 Embedding이 있다면 불러와서 사용할 수도 있다. 자연어 처리(NLP)에서 가장 중요한 것이 이 Embedding이다.
 - 이런 미리 만들어진 Embedding이 없다면, Embedding을 vector를 찾는 것도 전체 모델(Network)의 일부가 된다.
 
 
