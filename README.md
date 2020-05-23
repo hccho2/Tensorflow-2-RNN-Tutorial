@@ -16,7 +16,7 @@
 
 
 ## 1. [Basic RNN Model](https://github.com/hccho2/Tensorflow-2-RNN-Tutorial/tree/master/0.%20Basic)
-Tensorflow의 다음과 같은 API를 사용하여 기본적인 RNN 모델의 작동 원리를 알 수 있다.
+RNN모델의 기본적인 구조와 이를 위한 Tensorflow API를 살펴본다.
 - Introduction & Embedding
 - LSTM, GRU
 - Multi-Layer RNN
