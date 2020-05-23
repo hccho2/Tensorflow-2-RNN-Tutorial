@@ -5,9 +5,9 @@
 - rnn cell이 있고, 이 rnn cell을 연결하여 layer로 만든 것이 rnn이다. cell을 묶어 놓음으로써 time step을 batch로 처리 가능한다.
 ![decode](./rnncell.png)
 ![decode](./RNN.png)
-- RNN의 각 time step의 입력 data는 [batch_size, input_dim]=[N,D]형태이지만, 모든 time_step(즉 seq_length만큼)을 모으면, [batch_size, seq_length, input_dim]=[N,T,D] shape을 가진다. 
+- RNN의 각 time step의 입력 data는 [batch_size, input_dim]=[N,D]형태이지만, 모든 time_step(즉 seq_length만큼)을 모아, [batch_size, seq_length, input_dim]=[N,T,D] shape(형태)으로 만들어 넣어준다. 
 - batch로 묶인 data의 sequence길이가 다른 경우에는 padding을 통해, 같은 길이로 맞추는 과정이 필요하다.
-- embedding전의 data가 [batch_size, seq_length]형태를 가지는데, embedding을 통해, [batch_size, seq_length, input_dim]형태로 변환된다.
+- data가 embedding으로 변환되기 전에는 [batch_size, seq_length] 형태(shape)를 가지는데, embedding을 통해, [batch_size, seq_length, input_dim] 형태로 변환된다.
 ```
 import tensorflow as tf
 
