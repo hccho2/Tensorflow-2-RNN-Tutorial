@@ -99,26 +99,44 @@ outputs, last_state, last_sequence_lengths = decoder(embedding.weights,initial_s
 ![decode](./Encoder_Decoder.png)
 
 - Encoder-Decoder 구조를 Tensorflow로 구현하기 위해서는 `tf.keras.layers.RNN`으로 Encoder를 구현하면 되고, `tfa.seq2seq.BasicDecoder`를 사용하여 Decoder를 만들면 된다.
-- 다음은 pseudo code이다.
+- 다음은 간단한 구조의 Encoder-Decoder 코드이다. Encoder, Decoder의 각 입력값을 각각 Embedding을 거친 값으로 가정했다.
 
 ```
+import tensorflow as tf
+
 batch_size = 3
-seq_length = 5
-input_dim = 7
+encoder_length = 5
+encoder_input_dim = 7
 hidden_dim = 4
 
 encoder_cell = tf.keras.layers.LSTMCell(hidden_dim)  # RNN Cell
 encoder = tf.keras.layers.RNN(encoder_cell,return_sequences=False) # RNN
 
 
-inputs = tf.random.normal([batch_size, seq_length, input_dim])
 
 
-inputs = tf.random.normal([batch_size, seq_length, input_dim])  # Embedding을 거친 data라 가정.
-encoder_outputs = encoder(inputs) # encoder의 init_state을 명시적으로 전달하지 않으면, zero값이 들어간다.  ===> (batch_size, hidden_dim)
+encoder_inputs = tf.random.normal([batch_size, encoder_length, encoder_input_dim])  # Embedding을 거친 data라 가정.
+
+
+encoder_outputs = encoder(encoder_inputs) # encoder의 init_state을 명시적으로 전달하지 않으면, zero값이 들어간다.  ===> (batch_size, hidden_dim)
+
+
+decoder_length = 10
+decoder_input_dim = 7
+decoder_cell = tf.keras.layers.LSTMCell(hidden_dim)  # RNN Cell
+decoder = tf.keras.layers.RNN(encoder_cell,return_sequences=True) # RNN
+
+
+
+decoder_inputs = tf.random.normal([batch_size, decoder_length, decoder_input_dim])  # Embedding을 거친 data라 가정.
+initial_state =  [encoder_outputs,encoder_outputs]  # (h,c)모두에 encoder_outputs을 넣었다.
+
+decoder_outputs = decoder(decoder_inputs, initial_state)
+print(decoder_outputs)
+
 
 ```
-
+- 위 코드에서 `encoder_outputs`이 Decoder의 init_state가 되면 된다.
 
 
 
