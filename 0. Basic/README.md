@@ -1,6 +1,6 @@
 # Tensorflow에서 RNN관련 API의 사용법에 대해 알아보자.
 - 먼저 rnn cell과 rnn의 차이점을 살펴보자.
-- Tensorflow에서 rnn cell이 있고, 이 rnn cell을 연결하여 layer로 만든 것이 rnn이다. cell을 묶어 놓음으로써 time step을 batch로 처리가능한다.
+- Tensorflow에서 rnn cell이 있고, 이 rnn cell을 연결하여 layer로 만든 것이 rnn이다. cell을 묶어 놓음으로써 time step을 batch로 처리 가능한다.
 ![decode](./rnncell.png)
 ![decode](./RNN.png)
 - RNN의 각 time step의 입력 data는 [batch_size, input_dim]=[N,D]형태이지만, 모든 time_step(즉 seq_length만큼)을 모으면, [batch_size, seq_length, input_dim]=[N,T,D] shape을 가진다. 
@@ -26,3 +26,6 @@ output = rnn(inputs,initial_state)
 - inital_state는 주로 0으로 만들기도 하고, 다른 정보가 있으면 넣을 수도 있다. inital_state의 shape은 [batch_size, hidden_dim].
 - `return_sequences=True`로 하면, [batch_size, seq_length, hidden_dim] shape의 output이 return된다..
 - `return_sequences=False`로 했을 때는 sequence의 마지막 값이 [batch_size, hidden_dim] shape의 output이 return된다.
+
+================
+
