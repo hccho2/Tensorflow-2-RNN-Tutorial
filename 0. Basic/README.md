@@ -1,4 +1,4 @@
-# Tensorflow에서 RNN관련 API의 사용법에 대해 알아보자.
+# RNN with Tensorflow 2
 
 ## Introduction
 - 먼저 tensorflow에서는 rnn cell(e.g. tf.keras.layers.SimpleRNN)과 rnn(e.g. tf.keras.layers.RNN)을 구분하고 있다.
