@@ -26,8 +26,8 @@ output = rnn(inputs,initial_state)
 
 ```
 - inital_state는 주로 0으로 만들기도 하고, 다른 정보가 있으면 넣을 수도 있다. inital_state의 shape은 [batch_size, hidden_dim].
-- `return_sequences=True`로 하면, [batch_size, seq_length, hidden_dim] shape의 output이 return된다..
-- `return_sequences=False`로 했을 때는 sequence의 마지막 값이 [batch_size, hidden_dim] shape의 output이 return된다.
+- `return_sequences=True`로 하면, [batch_size, seq_length, hidden_dim] shape의 output이 return 된다..
+- `return_sequences=False`로 했을 때는 마지막 sequence의 값이 [batch_size, hidden_dim] 형태로 return 된다.
 
 ======================================================================================================================================================================
 
