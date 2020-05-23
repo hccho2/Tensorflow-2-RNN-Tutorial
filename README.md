@@ -22,7 +22,7 @@ Tensorflow의 다음과 같은 API를 사용하여 기본적인 RNN 모델의 �
 - Multi-Layer RNN
 - Bidirectional RNN
 
-### 2. [Tensorflow Addons](https://github.com/hccho2/RNN-Tutorial/tree/master/1.%20RNNWrapper) 
+### 2. [Tensorflow Addons](https://github.com/hccho2/Tensorflow-2-RNN-Tutorial/tree/master/1.%20Tensorflow-Addons) 
 - Tensorflow Addons
 - Encoder-Decoder(seq2seq) 모델
 - Attention
