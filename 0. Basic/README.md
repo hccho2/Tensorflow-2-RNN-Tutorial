@@ -13,12 +13,16 @@ batch_size = 3
 seq_length = 5
 input_dim = 7
 hidden_dim = 4
+
+rnn_cell = tf.keras.layers.LSTMCell(hidden_dim)  # RNN Cell
+rnn = tf.keras.layers.RNN(rnn_cell,return_sequences=True) # RNN
+
+initial_state =  rnn.get_initial_state(inputs)  # RNN의 initial state를 0으로 만든다. [batch_size, hidden_dim]
+
 inputs = tf.random.normal([batch_size, seq_length, input_dim])  # Embedding을 거친 data라 가정.
-rnn_cell = tf.keras.layers.LSTMCell(hidden_dim)
-rnn = tf.keras.layers.RNN(rnn_cell,return_sequences=True)
-initial_state =  rnn.get_initial_state(inputs)
 output = rnn(inputs,initial_state)
 
 ```
+- inital_state는 주로 0으로 만들기도 하고, 다른 정보가 있으면 넣을 수도 있다. inital_state의 shape은 [batch_size, hidden_dim].
 - `return_sequences=True`로 하면, [batch_size, seq_length, hidden_dim] shape의 output이 return된다..
 - `return_sequences=False`로 했을 때는 sequence의 마지막 값이 [batch_size, hidden_dim] shape의 output이 return된다.
