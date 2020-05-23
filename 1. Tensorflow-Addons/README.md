@@ -79,6 +79,7 @@ loss = tfa.seq2seq.sequence_loss(logits,target,weights)  # logit: (batch_size, s
 print('loss: ', loss.numpy())
 ```
 - train이 끝난 후, test를 위해서는 `tfa.GreedyEmbeddingSampler`를 사용하면 된다.
+![decode](./GreedyEmbedding.png)
 ```
 sampler = tfa.seq2seq.GreedyEmbeddingSampler()
 decoder = tfa.seq2seq.BasicDecoder(decoder_cell, sampler, output_layer=projection_layer,maximum_iterations=seq_length)
