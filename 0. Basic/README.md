@@ -34,7 +34,7 @@ output = rnn(inputs,initial_state)
 
 ## LSTM & GRU
 - Vanilla RNN은 hidden state에 그 전 모든 time step의 정보를 압축하여 다음 step으로 전달하는 구조이다.
-- LSTM, GRU는 직전 time step의 정보와 더 장기적인(더 이전 time step) 정보를 현재 time step에 전달할 수 있도록 모델 구조가 설계되어 있다. 
+- LSTM, GRU는 직전 time step의 정보와 더 장기적인(이전 time step 모두) 정보를 현재 time step에 전달할 수 있도록 모델 구조가 설계되어 있다. 
 - Vanilla RNN이 hidden state만으로 구성된 반면, LSTM은 hidden state(short term memory)와 장기 기억 전달을 목적으로 하는 cell state(long term memory) 2개로 구성되어 있다.
 
 ======================================================================================================================================================================
