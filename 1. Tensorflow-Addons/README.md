@@ -90,8 +90,12 @@ outputs, last_state, last_sequence_lengths = decoder(embedding.weights,initial_s
 - 그런데, EOS_token을 모델이 만들지 못하면 무한히 sequence를 생성할 수도 있기 때문에, 이를 방지하기 위해 `BasicDecoder`에서 `maximum_iterations`를 지정해 주고 있다.
 - `GreedyEmbeddingSampler`는 randomness가 없기 때문에, output의 결과는 batch_size 만큼 동일하다.
 
-
-
+## Encoder-Decoder Model
+- Encoder-Decoder Model은 seq2seq라고도 불린다.
+- NMT(번역), TTS, STT등에서 Encoder-Decoder Model이 사용된다.
+- 영어-한글 번역 NMT 문제에서는 영어를 Encoder로 처리하고, Decoder가 번역된 한글 문장을 생성하는 역할을 한다.  
+- TTS에서는 주어진 문장을 음성으로 변환해야 하는데, text로된 문장을 Encoder가 처리하고 Decoder가 음성을 생성하는 역할을 한다.
+![decode](./Encoder_Decoder.png)
 
 
 
