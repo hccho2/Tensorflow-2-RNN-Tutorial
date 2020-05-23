@@ -44,7 +44,6 @@ seq_length = x_data.shape[1]
 embedding_dim = 8
 
 embedding = tf.keras.layers.Embedding(vocab_size, embedding_dim,trainable=True) 
-##### embedding.weights, embedding.trainable_variables, embedding.trainable_weights --> 모두 같은 결과 
 
 inputs = embedding(x_data)
 target = tf.convert_to_tensor(y_data)
