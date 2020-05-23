@@ -46,7 +46,6 @@ embedding_dim = 8
 embedding = tf.keras.layers.Embedding(vocab_size, embedding_dim,trainable=True) 
 
 inputs = embedding(x_data)
-target = tf.convert_to_tensor(y_data)
 
 # Decoder
 decoder_cell = tf.keras.layers.LSTMCell(hidden_dim)
@@ -68,6 +67,7 @@ print(logits.shape)
 
 
 weights = tf.ones(shape=[batch_size,seq_length])
+target = tf.convert_to_tensor(y_data)
 loss = tfa.seq2seq.sequence_loss(logits,target,weights)  # logit: (batch_size, seq_length, vocab_size),        target, weights: (batch_size, seq_length)
 
 print('loss: ', loss)
