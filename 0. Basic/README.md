@@ -106,3 +106,25 @@ outputs, f_h, f_c, b_h, b_c = rnn(inputs)  # SimpleRNN: output, f_h, b_h        
 print(outputs)
 ```
 ![decode](./BidirectionalRNN.png)
+- backward layer를 명시적으로 지정하려면 다음과 같이 하면 된다.
+```
+import tensorflow as tf
+
+batch_size = 3
+seq_length = 5
+input_dim = 7
+hidden_dim = 2
+
+forward_layer = tf.keras.layers.LSTM(hidden_dim, return_sequences=True,return_state=True)
+backward_layer = tf.keras.layers.LSTM(hidden_dim, activation='relu', return_sequences=True, return_state=True, go_backwards=True)
+
+rnn = tf.keras.layers.Bidirectional(layer=forward_layer,backward_layer=backward_layer)
+
+inputs = tf.random.normal([batch_size, seq_length, input_dim])
+outputs, f_h, f_c, b_h, b_c = rnn(inputs)  # SimpleRNN: output, f_h, b_h           LSTM: output, f_h,f_c, b_h, b_c
+
+print(outputs)
+```
+
+
+
