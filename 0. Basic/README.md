@@ -89,6 +89,8 @@ print(outputs)
 
 ### Bidirectional RNN
 - `tf.keras.layers.Bidirectional`를 이용하면 된다. `backward_layer=None`을 주면, backward layer에는 forward layer와 같은 구조가 생성된다.
+- Bidirectional RNN은 time series적인 성격의 data전체로 부터 feature를 뽑아내기 위한 모듈이다. Encoder-Decoder(seq2seq)구조에서는 Encoder에 Bidirectional RNN이 사용될 수도 있다. 
+Decoder는 data를 순차적으로 생성하는 역할을 하기 때문에 Bidirectional RNN을 사용할 수가 없다.
 ```
 import tensorflow as tf
 
