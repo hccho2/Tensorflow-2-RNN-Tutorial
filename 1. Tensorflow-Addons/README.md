@@ -98,7 +98,7 @@ outputs, last_state, last_sequence_lengths = decoder(embedding.weights,initial_s
 	* TTS에서는 주어진 문장을 음성으로 변환해야 하는데, text로된 문장을 Encoder가 처리하고 Decoder가 음성을 생성하는 역할을 한다.
 ![decode](./Encoder_Decoder.png)
 
-- Encoder-Decoder 구조를 Tensorflow로 구현하기 위해서는 `tf.keras.layers.RNN`으로 Encoder를 구현하면 되고, `tfa.seq2seq.BasicDecoder`를 사용하여 Decoder를 만들면 된다.
+- Encoder-Decoder 구조를 Tensorflow로 구현을 생각해보자.  Encoder, Decoder 모두를 `tf.keras.layers.RNN`로 구현할 수 있다. 먼저 이렇게 하고, 나중에 Decoder를 `tfa.seq2seq.BasicDecoder`로 수정해 보자.
 - 다음은 간단한 구조의 Encoder-Decoder 코드이다. Encoder, Decoder의 각 입력값을 각각 Embedding을 거친 값으로 가정했다.
 
 ```
@@ -131,18 +131,53 @@ decoder = tf.keras.layers.RNN(encoder_cell,return_sequences=True) # RNN
 decoder_inputs = tf.random.normal([batch_size, decoder_length, decoder_input_dim])  # Embedding을 거친 data라 가정.
 initial_state =  [encoder_outputs,encoder_outputs]  # (h,c)모두에 encoder_outputs을 넣었다.
 
-decoder_outputs = decoder(decoder_inputs, initial_state)
+decoder_outputs = decoder(decoder_inputs, initial_state) # 이 decoder_outputs에 FC-Softmax를 더해주면 최종적인 모델이 완성된다.
+print(decoder_outputs)
+```
+- 위 코드는 추가적인 후처리가 좀 필요하다. decoder의 출력에 Fully Connected Layer - Softmax를 추가해 주어야 한다. Decoder로 `tfa.seq2seq.BasicDecoder`를 사용하면 이런 작업이 간단해 진다.
+
+- 이제 Decoder 구현을 `tfa.seq2seq.BasicDecoder`로 수정해 보자. 수정되는 부분이 많지 않다.
+```
+import tensorflow as tf
+
+batch_size = 3
+encoder_length = 5
+encoder_input_dim = 7
+hidden_dim = 4
+
+encoder_cell = tf.keras.layers.LSTMCell(hidden_dim)  # RNN Cell
+encoder = tf.keras.layers.RNN(encoder_cell,return_sequences=False) # RNN
+
+
+
+
+encoder_inputs = tf.random.normal([batch_size, encoder_length, encoder_input_dim])  # Embedding을 거친 data라 가정.
+
+
+encoder_outputs = encoder(encoder_inputs) # encoder의 init_state을 명시적으로 전달하지 않으면, zero값이 들어간다.  ===> (batch_size, hidden_dim)
+
+
+decoder_length = 10
+decoder_input_dim = 11
+decoder_output_dim = 8
+
+
+decoder_cell = tf.keras.layers.LSTMCell(hidden_dim)  # RNN Cell
+
+
+projection_layer = tf.keras.layers.Dense(decoder_output_dim)
+sampler = tfa.seq2seq.sampler.TrainingSampler()
+decoder = tfa.seq2seq.BasicDecoder(decoder_cell, sampler, output_layer=projection_layer)
+
+
+
+decoder_inputs = tf.random.normal([batch_size, decoder_length, decoder_input_dim])  # Embedding을 거친 data라 가정.
+initial_state =  [encoder_outputs,encoder_outputs]  # (h,c)모두에 encoder_outputs을 넣었다.
+
+decoder_outputs = decoder(decoder_inputs, initial_state=initial_state,sequence_length=[decoder_length]*batch_size,training=True)
 print(decoder_outputs)
 
-
 ```
-- 위 코드에서 `encoder_outputs`이 Decoder의 init_state가 되면 된다.
-
-
-
-
-
-
 
 
 
