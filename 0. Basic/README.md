@@ -37,7 +37,15 @@ output = rnn(inputs,initial_state)
 - LSTM, GRU는 직전 time step의 정보와 더 장기적인(이전 time step 모두) 정보를 현재 time step에 전달할 수 있도록 모델 구조가 설계되어 있다. 
 - Vanilla RNN은 hidden state만으로 구성된 반면, LSTM은 hidden state(short term memory)와 장기 기억 전달을 목적으로 하는 cell state(long term memory) 2개로 구성되어 있다.
 ![decode](./LSTM.png)
-
+- Tensorflow에서 LSTM은 다음과 같이 사용할 수 있다.
+```
+cell = tf.keras.layers.LSTMCell(hidden_dim)
+rnn = tf.keras.layers.RNN(cell,return_sequences=True)
+```
+또는 
+```
+rnn = tf.keras.layers.LSTM(4,return_sequences=True, return_state=True, name='encoder')
+```
 
 
 
@@ -47,8 +55,12 @@ output = rnn(inputs,initial_state)
 
 
 ## Multi-Layer RNN
-- xx
-
+![decode](./Multi-Layer.png)
+- Multi Layer는 cell을 여래개 겹친 후, RNN에 넘겨주면 된다.
+```
+cells = [tf.keras.layers.LSTMCell(hidden_dim),tf.keras.layers.LSTMCell(hidden_dim*2)]
+rnn = tf.keras.layers.RNN(cells,return_sequences=True)
+``` 
 
 ======================================================================================================================================================================
 
