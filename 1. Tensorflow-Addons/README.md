@@ -85,8 +85,9 @@ decoder = tfa.seq2seq.BasicDecoder(decoder_cell, sampler, output_layer=projectio
 outputs, last_state, last_sequence_lengths = decoder(embedding.weights,initial_state=init_state,
                                   start_tokens=tf.tile([SOS_token], [batch_size]), end_token=EOS_token,training=False)   
 ```
-- 위 코드에서는 첫번째 time step의 입력으로 [S0S_token]을 batch_size만큼 만들어서 넣어주고 있다. `GreedEmbeddingSampler`를 이용해서 sequence를 생성해 나가는 데, EOS_token을 만들 때까지 생성하게 하고 있다.
+- 위 코드에서는 첫번째 time step의 입력으로 [S0S_token]을 batch_size만큼 만들어서 넣어주고 있다. `GreedyEmbeddingSampler`를 이용해서 sequence를 생성해 나가는 데, EOS_token을 만들 때까지 생성하게 하고 있다.
 - 그런데, EOS_token을 모델이 만들지 못하면 무한히 sequence를 생성할 수도 있기 때문에, 이를 방지하기 위해 `BasicDecoder`에서 `maximum_iterations`를 지정해 주고 있다.
+- `GreedyEmbeddingSampler`는 randomness가 없기 때문에, output의 결과는 batch_size 만큼 동일하다.
 
 
 
