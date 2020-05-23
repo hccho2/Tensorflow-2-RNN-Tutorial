@@ -19,6 +19,6 @@ import tensorflow_addons as tfa
 	* tf.contrib.seq2seq.BasicDecoder
 	* tf.contrib.seq2seq.TrainingHelper,   tf.contrib.seq2seq.GreedyEmbeddingHelper
 	* tf.contrib.seq2seq.dynamic_decode
-
+![decode](./BasicDecoder.png)
 
 
