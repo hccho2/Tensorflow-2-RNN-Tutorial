@@ -101,7 +101,7 @@ forward_layer = tf.keras.layers.LSTM(hidden_dim, return_sequences=True,return_st
 rnn = tf.keras.layers.Bidirectional(layer=forward_layer,backward_layer=None)
 
 inputs = tf.random.normal([batch_size, seq_length, input_dim])
-outputs, f_h, f_c, b_h, b_c = rnn(inputs)  # SimpleRNN: output, f_h, b_h           LSTM: output, f_h,f_c, b_h, b_c
+outputs, f_h, f_c, b_h, b_c = rnn(inputs)  # SimpleRNN: outputs, f_h, b_h           LSTM: outputs, f_h,f_c, b_h, b_c
 
 print(outputs)
 ```
@@ -121,7 +121,7 @@ backward_layer = tf.keras.layers.LSTM(hidden_dim, activation='relu', return_sequ
 rnn = tf.keras.layers.Bidirectional(layer=forward_layer,backward_layer=backward_layer)
 
 inputs = tf.random.normal([batch_size, seq_length, input_dim])
-outputs, f_h, f_c, b_h, b_c = rnn(inputs)  # SimpleRNN: output, f_h, b_h           LSTM: output, f_h,f_c, b_h, b_c
+outputs, f_h, f_c, b_h, b_c = rnn(inputs)  # SimpleRNN: outputs, f_h, b_h           LSTM: outputs, f_h,f_c, b_h, b_c
 
 print(outputs)
 ```
