@@ -180,7 +180,13 @@ print(decoder_outputs)
 
 ```
 
-
+## Multi-Layer Decoder
+- Decoder의 RNN Layer를 여러층으로 쌓을 수 있다.
+- rnn cell을 list로 단순히 쌓아, `tfa.seq2seq.BasicDecoder`로 넘기면 error가 난다.
+- `tf.keras.layers.StackedRNNCells`를 사용해야 한다.
+```
+decoder_cell = tf.keras.layers.StackedRNNCells([tf.keras.layers.LSTMCell(hidden_dim),tf.keras.layers.LSTMCell(2*hidden_dim)])
+``
 
 
 
