@@ -218,7 +218,6 @@ decoder_inputs = tf.random.normal([batch_size, decoder_length, decoder_input_dim
 if decoder_multi_layer_flag:
     initial_state = decoder_cell.get_initial_state(inputs=decoder_inputs)
     initial_state = ([encoder_outputs,encoder_outputs], initial_state[1])  # decoder의 첫번째 layer에 encoder hidden을 넣어준다.
-    
 else:
     initial_state =  [encoder_outputs,encoder_outputs]  # (h,c)모두에 encoder_outputs을 넣었다.
 
