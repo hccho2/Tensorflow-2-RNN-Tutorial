@@ -124,7 +124,7 @@ encoder_outputs = encoder(encoder_inputs) # encoder의 init_state을 명시적�
 decoder_length = 10
 decoder_input_dim = 7
 decoder_cell = tf.keras.layers.LSTMCell(hidden_dim)  # RNN Cell
-decoder = tf.keras.layers.RNN(encoder_cell,return_sequences=True) # RNN
+decoder = tf.keras.layers.RNN(decoder_cell,return_sequences=True) # RNN
 
 
 
