@@ -33,10 +33,11 @@ RNN모델의 기본적인 구조와 이를 위한 Tensorflow API를 살펴본다
 - Dot Product Attention, Luong Attention, Bahdanau Attention
 - Tensorflow에서의 Attention 구현 Detail.
 
-### 3.다양한 BeamSearchDecoder & Sampler
-- 
-
+### 3.BeamSearchDecoder & 다양한 Sampler
+- Beam Search Algorithm과 Tensorflow API `tfa.seq2seq.BeamSearchDecoder`
+- SampleEmbeddingSampler, ScheduledOutputTrainingSampler
 ### 4. User Defined RNN Cell
-
+- 직접 RNN Cell을 만들어 보자.
 
 ### 6. User Defined Sampler
+- 직접 Sampler를 만들어 보자.
