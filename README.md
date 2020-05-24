@@ -9,9 +9,10 @@
 - tensorflow 1.x 의 tensorflow.contrib.seq2seq는 tensorflow 2.x에서 tensorflow_addons.seq2seq로 변환되었다고 볼 수 있다.
 - 여기서는 Addon중에서 RNN관련 API를 살펴볼 예정이다:
     * tfa.seq2seq.Sampler
-    * tfa.seq2seq.BasicDecoder
+    * tfa.seq2seq.BasicDecoder, tfa.seq2seq.BeamSearchDecoder
     * tfa.seq2seq.dynamic_decode
     * tfa.seq2seq.BahdanauAttention, tfa.seq2seq.LuongAttention
+- Decoder에서 좀 더 다양한 Sampling을 통한 output을 만들어 내기 위해서는 여러가지 Sampler를 다룰 수 있어야 한다.
 - 또한, RNNCell, Sampler를 custumization하여 User Defined RNNCell, Sampler를 만들어 보자.
 
 
