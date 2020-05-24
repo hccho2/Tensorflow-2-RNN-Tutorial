@@ -21,4 +21,5 @@
 ![decode](./Attention_Score.png)
 	* Dot Product Attention: 위에서 언급한 대로, Encoder, Decoder hidden state간의 내적이다. 내적이 되기 위해서는 Encoder, Decoder hidden state dimension이 일치해야 한다.
 	* Luong Attention: Dot Product Attention은 hidden state간의 dimension이 일치할 때만 가능하다. 이런 제약조건을 극복하기 위해 중간에 행렬(Y_a)을 하나 끼워, 곱이 가능할 수 있도록 하는 방식이다. 행렬 Y_a의 크기는 (eh x dh).
-	* Bahdanau Attention: 좀 더 복잡한 방식으로 score 계산이 이뤄어진다.
+	* Bahdanau Attention: 좀 더 복잡한 방식으로 score 계산이 이뤄어진다. 먼저 v_a vector의 크기를 결정하기 위한 hyperparameter N_a가 정해져 있을야 한다.
+![decode](./BahdanauAttention.png)
