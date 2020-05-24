@@ -186,7 +186,7 @@ print(decoder_outputs)
 - `tf.keras.layers.StackedRNNCells`를 사용해야 한다.
 ```
 decoder_cell = tf.keras.layers.StackedRNNCells([tf.keras.layers.LSTMCell(hidden_dim),tf.keras.layers.LSTMCell(2*hidden_dim)])
-``
+```
 
 
 
