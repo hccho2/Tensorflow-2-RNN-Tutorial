@@ -17,4 +17,5 @@
 - 이 alignment로 Memory vector들을 가중평균(weighted sum)하면 [N,eh] 크기의 vector가 만들어진다. 이 vector를 context라 부른다.
 - 다시 context를 가공하여 Attention vector를 만든다. 다시 말해, Attention은 context로 부터 얻어지는데, 가공하지 않고 그대로 사용하기도 한다.
 ![decode](./score.png)
-
+- 이제 score을 어떻게 계산하는지 자세히 살펴보자.
+![decode](./Attention_Score.png)
