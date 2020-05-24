@@ -15,18 +15,18 @@
 - 또한, RNNCell, Sampler를 custumization하여 User Defined RNNCell, Sampler를 만들어 보자.
 
 
-## 1. [Basic RNN Model](https://github.com/hccho2/Tensorflow-2-RNN-Tutorial/tree/master/0.%20Basic)
+## 0. [Basic RNN Model](https://github.com/hccho2/Tensorflow-2-RNN-Tutorial/tree/master/0.%20Basic)
 RNN모델의 기본적인 구조와 이를 위한 Tensorflow API를 살펴본다.
 - Introduction & Embedding
 - LSTM, GRU
 - Multi-Layer RNN
 - Bidirectional RNN
 
-### 2. [Tensorflow Addons](https://github.com/hccho2/Tensorflow-2-RNN-Tutorial/tree/master/1.%20Tensorflow-Addons) 
+### 1. [Tensorflow Addons](https://github.com/hccho2/Tensorflow-2-RNN-Tutorial/tree/master/1.%20Tensorflow-Addons) 
 - Tensorflow Addons
 - Decoder, Sampler
 - Encoder-Decoder(seq2seq) 모델 
 
 
-### 3. [Attention](https://github.com/hccho2/Tensorflow-2-RNN-Tutorial/tree/master/2.%20Attention)
+### 2. [Attention](https://github.com/hccho2/Tensorflow-2-RNN-Tutorial/tree/master/2.%20Attention)
 
