@@ -34,7 +34,9 @@
 ## Tensorflow에서의 Attention 구현
 - `tfa.seq2seq.BahdanauAttention` 또는 `tfa.seq2seq.LuongAttention`이 있어야 하고,
 - `tfa.seq2seq.AttentionWrapper`이 있어야 하는데, 이 `tfa.seq2seq.AttentionWrapper`도 rnn cell이다. 따라서, 이것도 `tfa.seq2seq.BasicDecoder`로 넘어간다.
+- Tensorflow에서의 Attention은 `Attention Mechanism`이라 불린다.
 - Addons의 `AttentionWrapperState`에 버그가 있어, 편법이 동원되었다. 
+
 ```
 import numpy as np
 import tensorflow as tf
@@ -93,4 +95,7 @@ logits = outputs.rnn_output
 
 print(logits)
 ```
-
+- Luong Attention에서는 `units=decoder_hidden_dim`이 되어야 한다.
+```
+attention_mechanism = tfa.seq2seq.LuongAttention(units=hidden_dim, memory=encoder_outputs, memory_sequence_length=encoder_sequence_length)
+```
