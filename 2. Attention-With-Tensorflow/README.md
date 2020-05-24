@@ -99,3 +99,4 @@ print(logits)
 ```
 attention_mechanism = tfa.seq2seq.LuongAttention(units=hidden_dim, memory=encoder_outputs, memory_sequence_length=encoder_sequence_length)
 ```
+- Attention Mechanism에서 `memory_sequence_length`의 역할: Encoder의 같은 seqeunce길이로 묶여서 넘어온다. 같은 길이가 되기 위해서는 padding이 붙은 data도 있을 수 있다. 이런 padding 영역에 score가 계산되지 않도록 `memory_sequence_length`를 보고, masking이 된다.
