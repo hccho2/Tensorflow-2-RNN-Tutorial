@@ -32,7 +32,7 @@
 ## Tensorflow에서의 Attention 구현
 - `tfa.seq2seq.BahdanauAttention` 또는 `tfa.seq2seq.LuongAttention`이 있어야 하고,
 - `tfa.seq2seq.AttentionWrapper`이 있어야 하는데, 이 `tfa.seq2seq.AttentionWrapper`도 rnn cell이다. 따라서, 이것도 `tfa.seq2seq.BasicDecoder`로 넘어간다.
-
+- Addons의 `AttentionWrapperState`에 버그가 있어, 편법이 동원되었다. 
 ```
 import numpy as np
 import tensorflow as tf
@@ -73,14 +73,16 @@ sampler = tfa.seq2seq.sampler.TrainingSampler()
 # Decoder
 decoder_cell = tf.keras.layers.LSTMCell(hidden_dim)
 
-# tfa.seq2seq.AttentionWrapper의 initial_cell_state로 tuple을 넣어야 되는데... 이건 버그임. 
+
 decoder_cell = tfa.seq2seq.AttentionWrapper(decoder_cell, attention_mechanism,attention_layer_size=13,initial_cell_state=init_state,output_attention=True,alignment_history=True)
 projection_layer = tf.keras.layers.Dense(output_dim)
 
-attention_init_state = decoder_cell.get_initial_state(inputs = None, batch_size = batch_size, dtype=tf.float32)  # inputs의 역할은 없음..
 
+attention_init_state = decoder_cell.get_initial_state(inputs = None, batch_size = batch_size, dtype=tf.float32)  # inputs의 역할은 없음..
+# tfa.seq2seq.AttentionWrapper의 initial_cell_state로 tuple을 넣어야 되는데... 이건 버그임. ---> attention_init_state2를 임시로 만듬.
 attention_init_state2 = tfa.seq2seq.AttentionWrapperState(list(attention_init_state.cell_state),attention_init_state.attention,attention_init_state.alignments,
                                                           attention_init_state.alignment_history,attention_init_state.attention_state)
+
 
 decoder = tfa.seq2seq.BasicDecoder(decoder_cell, sampler, output_layer=projection_layer)
 
