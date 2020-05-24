@@ -26,5 +26,5 @@
 	* Normalize = True/False에 따라, score에 대한 normalization 적용 여부가 결정된다.
 ![decode](./BahdanauAttention.png)
 
-- [참고] Tensorflow 내부에서 Attention이 계산되는 과정과 shape이 변화는 다음과 같다. 실제 계산과정에서는 batch로 처리되고 broadcasting 과정도 거친다.
+- [참고] Tensorflow 내부에서 Attention이 계산되는 과정과 shape의 변화는 다음과 같다. 실제 계산과정에서는 batch로 처리되고 broadcasting 과정도 거친다.
 ![decode](./attention-shape.png)
