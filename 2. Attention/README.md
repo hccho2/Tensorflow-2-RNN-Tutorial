@@ -17,5 +17,8 @@
 - 이 alignment로 Memory vector들을 가중평균(weighted sum)하면 [N,eh] 크기의 vector가 만들어진다. 이 vector를 context라 부른다.
 - 다시 context를 가공하여 Attention vector를 만든다. 다시 말해, Attention은 context로 부터 얻어지는데, 가공하지 않고 그대로 사용하기도 한다.
 ![decode](./score.png)
-- 이제 score을 어떻게 계산하는지 자세히 살펴보자.
+- 이제 score을 어떻게 계산하는지 자세히 살펴보자. score는 Decoder의 hidden state s_i와 Encoder의 hiddens state h_j간의 연산이다. encoder의 hidden state가 Te개 이므로, {score(s_i,h_j)}가 계산된다.
 ![decode](./Attention_Score.png)
+	* Dot Product Attention: 위에서 언급한 대로, Encoder, Decoder hidden state간의 내적이다. 내적이 되기 위해서는 Encoder, Decoder hidden state dimension이 일치해야 한다.
+	* Luong Attention: Dot Product Attention은 hidden state간의 dimension이 일치할 때만 가능하다. 이런 제약조건을 극복하기 위해 중간에 행렬을 하나 끼워, 곱이 가능할 수 있도록 하는 방식이다.
+	* Bahdanau Attention: 좀 더 복잡한 방식으로 score 계산이 이뤄어진다.
