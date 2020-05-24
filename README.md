@@ -28,7 +28,7 @@ RNN모델의 기본적인 구조와 이를 위한 Tensorflow API를 살펴본다
 - Encoder-Decoder(seq2seq) 모델 
 
 
-### 2. [Attention](https://github.com/hccho2/Tensorflow-2-RNN-Tutorial/tree/master/2.%20Attention)
+### 2. [Attention](https://github.com/hccho2/Tensorflow-2-RNN-Tutorial/tree/master/2.%20Attention-With-Tensorflow)
 - Attention이 개념.
 - Dot Product Attention, Luong Attention, Bahdanau Attention
 - Tensorflow에서의 Attention 구현 Detail.
