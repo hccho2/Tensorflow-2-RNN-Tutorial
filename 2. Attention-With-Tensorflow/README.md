@@ -25,3 +25,6 @@
 	그리고, N_l이 없으며, context가 attention이 되고, N_a가 주어져 있는 경우에는 연산이 한번 더 이루어진다.
 	* Normalize = True/False에 따라, score에 대한 normalization 적용 여부가 결정된다.
 ![decode](./BahdanauAttention.png)
+
+- [참고] Tensorflow 내부에서 Attention이 계산되는 과정과 shape이 변화는 다음과 같다. 실제 계산과정에서는 batch로 처리되고 broadcasting 과정도 거친다.
+![decode](./attention-shape.png)
