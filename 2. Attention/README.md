@@ -6,7 +6,7 @@
 ![decode](./Attention.png)
 	- N: batch_size,
 	- Te: Encoder sequence Length
-	- De: Encoder Hidden Dim
+	- eh, dh: Encoder Hidden Dim, Decoder Hidden dim
 - Encoder의 모든 hidden state, 즉 Memory는 [N,Te,eh]형태를 가진다. 이 memory는 De크기의 vector가 Te개 있다고 보면된다. 
 - Decoder의 time step i에서의 hidden state는 Query라 부른다. 이 Query는 [N,dh] 형태이다. 
 - Te개의 Memory vector 각각과 Query간에 score라는 것을 계산하고 나면, score는 모두 Te개가 된다. 이 score를 계산하는 방식에는 여러 Attention 모델이 있을 수 있다.
