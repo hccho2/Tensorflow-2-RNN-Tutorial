@@ -149,11 +149,7 @@ hidden_dim = 4
 encoder_cell = tf.keras.layers.LSTMCell(hidden_dim)  # RNN Cell
 encoder = tf.keras.layers.RNN(encoder_cell,return_sequences=False) # RNN
 
-
-
-
 encoder_inputs = tf.random.normal([batch_size, encoder_length, encoder_input_dim])  # Embedding을 거친 data라 가정.
-
 
 encoder_outputs = encoder(encoder_inputs) # encoder의 init_state을 명시적으로 전달하지 않으면, zero값이 들어간다.  ===> (batch_size, hidden_dim)
 
@@ -162,15 +158,11 @@ decoder_length = 10
 decoder_input_dim = 11
 decoder_output_dim = 8
 
-
 decoder_cell = tf.keras.layers.LSTMCell(hidden_dim)  # RNN Cell
-
 
 projection_layer = tf.keras.layers.Dense(decoder_output_dim)
 sampler = tfa.seq2seq.sampler.TrainingSampler()
 decoder = tfa.seq2seq.BasicDecoder(decoder_cell, sampler, output_layer=projection_layer)
-
-
 
 decoder_inputs = tf.random.normal([batch_size, decoder_length, decoder_input_dim])  # Embedding을 거친 data라 가정.
 initial_state =  [encoder_outputs,encoder_outputs]  # (h,c)모두에 encoder_outputs을 넣었다.
@@ -187,7 +179,53 @@ print(decoder_outputs)
 ```
 decoder_cell = tf.keras.layers.StackedRNNCells([tf.keras.layers.LSTMCell(hidden_dim),tf.keras.layers.LSTMCell(2*hidden_dim)])
 ```
+- 다음은 Decoder Layer를 Multi로 만든 sample code이다.
+```
+import tensorflow as tf
+import tensorflow_addons as tfa
 
+
+batch_size = 3
+encoder_length = 5
+encoder_input_dim = 7
+hidden_dim = 4
+
+encoder_cell = tf.keras.layers.LSTMCell(hidden_dim)  # RNN Cell
+encoder = tf.keras.layers.RNN(encoder_cell,return_sequences=False) # RNN
+
+encoder_inputs = tf.random.normal([batch_size, encoder_length, encoder_input_dim])  # Embedding을 거친 data라 가정.
+
+encoder_outputs = encoder(encoder_inputs) # encoder의 init_state을 명시적으로 전달하지 않으면, zero값이 들어간다.  ===> (batch_size, hidden_dim)
+
+
+decoder_length = 10
+decoder_input_dim = 11
+decoder_output_dim = 8
+
+decoder_multi_layer_flag = True
+if decoder_multi_layer_flag:
+    decoder_cell = tf.keras.layers.StackedRNNCells([tf.keras.layers.LSTMCell(hidden_dim),tf.keras.layers.LSTMCell(2*hidden_dim)])
+ 
+else:
+    decoder_cell = tf.keras.layers.LSTMCell(hidden_dim)  # RNN Cell
+
+projection_layer = tf.keras.layers.Dense(decoder_output_dim)
+sampler = tfa.seq2seq.sampler.TrainingSampler()
+decoder = tfa.seq2seq.BasicDecoder(decoder_cell, sampler, output_layer=projection_layer)
+
+decoder_inputs = tf.random.normal([batch_size, decoder_length, decoder_input_dim])  # Embedding을 거친 data라 가정.
+
+if decoder_multi_layer_flag:
+    initial_state = decoder_cell.get_initial_state(inputs=decoder_inputs)
+    initial_state = ([encoder_outputs,encoder_outputs], initial_state[1])  # decoder의 첫번째 layer에 encoder hidden을 넣어준다.
+    
+else:
+    initial_state =  [encoder_outputs,encoder_outputs]  # (h,c)모두에 encoder_outputs을 넣었다.
+
+decoder_outputs = decoder(decoder_inputs, initial_state=initial_state,sequence_length=[decoder_length]*batch_size,training=True)
+print(decoder_outputs)
+
+```
 
 
 
