@@ -139,6 +139,7 @@ print(decoder_outputs)
 - 이제 Decoder 구현을 `tfa.seq2seq.BasicDecoder`로 수정해 보자. 수정되는 부분이 많지 않다.
 ```
 import tensorflow as tf
+import tensorflow_addons as tfa
 
 batch_size = 3
 encoder_length = 5
