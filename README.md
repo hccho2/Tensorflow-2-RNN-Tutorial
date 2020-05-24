@@ -32,3 +32,11 @@ RNN모델의 기본적인 구조와 이를 위한 Tensorflow API를 살펴본다
 - Attention이 개념.
 - Dot Product Attention, Luong Attention, Bahdanau Attention
 - Tensorflow에서의 Attention 구현 Detail.
+
+### 3.다양한 BeamSearchDecoder & Sampler
+- 
+
+### 4. User Defined RNN Cell
+
+
+### 6. User Defined Sampler

@@ -2,6 +2,8 @@
 
 ## Attention이란
 - Attention은 Encoder의 마지막 hidden state에 모든 정보를 압축하는 방식의 단점을 보완하기 위한 기법이다.
+- 예를 들어, TTS 모델인 Tacotron, Tacotron 2는 Attention을 사용한 전형적인 모델이다.
+![decode](./Tacotron2.png)
 - Attention은 Encder의 모든 time step에서의 출력을 Decoder에 전달하는 방식이다. 이 Encoder의 모든 출력을 Memory(또는 Key)라 부른다.
 ![decode](./Attention.png)
 	- N: batch_size,
