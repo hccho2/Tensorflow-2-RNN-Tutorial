@@ -136,7 +136,6 @@ class MySampler(Sampler):
     def sample_ids_shape(self):
         ...
 
-
     def next_inputs(self, time, outputs, state, sample_ids, name=None):   # time+1을 위한 input을 만든다., outputs,state,sample_ids는 time step에서의 결과이다.
         ...
 
