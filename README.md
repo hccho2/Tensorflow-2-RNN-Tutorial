@@ -42,7 +42,7 @@ RNN모델의 기본적인 구조와 이를 위한 Tensorflow API를 살펴본다
 ### 4. [User Defined Sampler](https://github.com/hccho2/Tensorflow-2-RNN-Tutorial/tree/master/4.%20User-Defined-Sampler)
 - `tfa.seq2seq.InferenceSampler`를 이용하여 Customization해 보자.
 - User Defined Sampler는 왜 필요한가?
-- User Defined Sampler: 직접 Sampler를 만들어 보자.
+- User Defined Sampler(Custom Sampler) 만들기
 
 ### 5. [User Defined RNNCell](https://github.com/hccho2/Tensorflow-2-RNN-Tutorial/tree/master/5.%20User-Defined-RNNCell)
 - Custom Layer = User Defined Layer 만들기
