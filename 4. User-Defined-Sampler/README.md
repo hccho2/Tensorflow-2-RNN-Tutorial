@@ -118,7 +118,8 @@ for i in range(sample_batch_size):
 ## User Defined Sampler를 만들어 보자.
 - `tfa.seq2seq.CustomSampler`가 있지만, 이 API를 사용하는 것보다 직접 Sampler class를 만드는 것이 효율적이다.
 - User Defined Sampler는 왜 필요한가?
-
+![decode](./Tacotron.png)
+- TTS모델인 Tacotron의 Decoder는 한번의 time step에 reduction factor 만큼의 output을 생성하고, 그 중에서 마지막을 다음 step의 입력으로 넘겨준다. 이러한 방식의 sampling을 위해서는 새로운 Sampler를 만들어야 한다.
 - `tensorflow_addons.seq2seq.Sampler`를 상속 받은 class를 정의한다. 그리고, 다음과 같이 member function을 정의해 주면 된다.
 ```
 from tensorflow_addons.seq2seq import Sampler
