@@ -36,6 +36,7 @@ RNN모델의 기본적인 구조와 이를 위한 Tensorflow API를 살펴본다
 
 ### 3.BeamSearchDecoder & 다양한 Sampler(https://github.com/hccho2/Tensorflow-2-RNN-Tutorial/tree/master/3.%20BeamSearchDecoder-Sampler)
 - Beam Search Algorithm과 Tensorflow API `tfa.seq2seq.BeamSearchDecoder`
+- Minimal Character Model Train 시키기.
 - SampleEmbeddingSampler, ScheduledOutputTrainingSampler
 ### 4. User Defined RNN Cell
 - 직접 RNN Cell을 만들어 보자.
