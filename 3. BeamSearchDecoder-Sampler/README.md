@@ -118,6 +118,10 @@ else:
 ## 다양한 Sampler
 - 지금까지 `tfa.seq2seq.sampler.TrainingSampler`, `tfa.seq2seq.GreedyEmbeddingSampler`만 보았다. 좀 더 다양한 Sampler를 살펴보자.
 	* `tfa.seq2seq.SampleEmbeddingSampler`: inference에서 `GreedyEmbeddingSampler` 대신 사용할 수 있다. `GreedyEmbeddingSampler`는 argmax로 sampling이 되지만, `SampleEmbeddingSampler`는 확률에 따라 sampling한다. 이런 sampling 방식을 categorical sampling이라 한다.
-	* 
+	* `tfa.seq2seq.ScheduledEmbeddingTrainingSampler`: 
+```
+sampler = tfa.seq2seq.sampler.ScheduledEmbeddingTrainingSampler(sampling_probability=0.2)
+outputs, last_state, last_sequence_lengths = decoder(..., embedding=embedding.weights)
+```
 
 
