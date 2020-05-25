@@ -18,17 +18,17 @@
 				...
 		```
 	* `tf.keras.Model`: 기존의 layer들의 조합으로 새로운 layer를 만드는 경우
-```
-class MyLayer(tf.keras.Model):  # tf.keras.layers.Layer    tf.keras.Model
-    # tf.keras.Model은 새로운 weight 없이, 기존의 layer들의 조합으로 새로운 layer를 만들 때 사용하면 좋다.
-    def __init__(self,...):
-        super(MyLayer, self).__init__()   # 이게 있어야 한다.
-        ...
-    
-        
-    def call(self, inputs,training=None):
-        ...
-```
+		```
+		class MyLayer(tf.keras.Model):  # tf.keras.layers.Layer    tf.keras.Model
+			# tf.keras.Model은 새로운 weight 없이, 기존의 layer들의 조합으로 새로운 layer를 만들 때 사용하면 좋다.
+			def __init__(self,...):
+				super(MyLayer, self).__init__()   # 이게 있어야 한다.
+				...
+			
+				
+			def call(self, inputs,training=None):
+				...
+		```
 
 
 
