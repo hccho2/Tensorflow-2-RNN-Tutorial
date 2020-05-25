@@ -87,7 +87,7 @@ print(decoder_outputs)
 - Custom RNNCell은 `tf.keras.layers.Layer`를 상속받아 만드는 것이 좋다. 
 - `tf.keras.Model`을 상속받아 만드는 경우 custom cell을 `tf.keras.layers.RNN`에 넘겼을 때, Error가 발생한다.
 - __init__() 내에, `self.state_size`, `self.output_size`가 정의되어 있어야 한다.
-- 다음 Residual 구조를 가지는 custom RNNCell을 만드는 코드이다. 
+- 다음 Residual 구조를 가지는 custom RNNCell을 만든 후, Test한 코드이다.
 ```
 import numpy as np
 import tensorflow as tf
