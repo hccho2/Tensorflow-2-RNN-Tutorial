@@ -76,7 +76,7 @@ for step in range(200):
     if step%10==0:
         print(step, loss.numpy())
 
-
+# Train 완료!!! Test 시작.
 sample_batch_size = 2
 
 decoder_type = 2
