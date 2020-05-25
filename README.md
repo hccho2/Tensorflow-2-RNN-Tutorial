@@ -5,6 +5,7 @@
 - This repository is a tutorial for RNN model developers using Tensorflow 2.
 - 이 tutorial은 tensorflow 1.x 용 [RNN Tutorial](https://github.com/hccho2/Tensorflow-RNN-Tutorial)을 Tensorflow 2에 맞게 수정한 것이다.
 - 이 tutorial 코드를 실행하기 위해서는 Tensorflow 2.2.0, tensorflow_addons 0.10.0 필요
+- tutorial 중간 중간 나오는 코드를 copy하여 실행하면 된다.
 - TensorFlow SIG(Special Interest Group) [Addons](https://www.tensorflow.org/addons/overview?hl=ko)은 Tensorflow에서 사용할 수 없는 기능을 추가로 구현한 API를 모아놓은 것이다. 
 - tensorflow 1.x 의 tensorflow.contrib.seq2seq는 tensorflow 2.x에서 tensorflow_addons.seq2seq로 변환되었다고 볼 수 있다.
 - 여기서는 Addon중에서 RNN관련 API를 살펴볼 예정이다:
