@@ -45,4 +45,5 @@ RNN모델의 기본적인 구조와 이를 위한 Tensorflow API를 살펴본다
 - User Defined Sampler: 직접 Sampler를 만들어 보자.
 
 ### 5. [User Defined RNNCell](https://github.com/hccho2/Tensorflow-2-RNN-Tutorial/tree/master/5.%20User-Defined-RNNCell)
-- User Defined RNNCell: 직접 RNN Cell을 만들어 보자.
+- Custom Layer = User Defined Layer 만들기
+- User Defined RNNCell 만들기
