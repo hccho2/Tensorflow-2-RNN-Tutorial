@@ -8,7 +8,7 @@
 - tutorial 중간 중간 나오는 코드를 copy하여 실행하면 된다.
 - TensorFlow SIG(Special Interest Group) [Addons](https://www.tensorflow.org/addons/overview?hl=ko)은 Tensorflow 2에 없는 기능을 구현한 API들이다. 
 - tensorflow 1.x 의 tensorflow.contrib.seq2seq는 tensorflow 2.x에서 tensorflow_addons.seq2seq로 변환되었다고 볼 수 있다.
-- 여기서는 Addon중에서 RNN관련 API를 살펴볼 예정이다:
+- 여기서는 Addons 중에서 RNN관련 API를 살펴볼 예정이다.
     * tfa.seq2seq.Sampler
     * tfa.seq2seq.BasicDecoder, tfa.seq2seq.BeamSearchDecoder
     * tfa.seq2seq.dynamic_decode
