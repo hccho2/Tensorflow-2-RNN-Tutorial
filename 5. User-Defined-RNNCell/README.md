@@ -126,7 +126,7 @@ hidden_dim = feature_dim
 cell = MyCell(hidden_dim)   # User Defined Cell
 
 print('-'*20, 'Test 1','-'*20)
-# 1 time step 처리
+########## 1개 time step 처리
 inputs = tf.random.normal([batch_size, feature_dim])
 states =  cell.get_initial_state(inputs=None, batch_size=batch_size,dtype=tf.float32)
 outputs, states = cell(inputs,states,training=True)
@@ -135,7 +135,7 @@ print(states)
 
 
 print('-'*20, 'Test 2','-'*20)
-# 여러 step을 loop로 처리
+########## 여러 step을 loop로 처리
 inputs = tf.random.normal([batch_size, seq_length, feature_dim])
 
 states =  [tf.zeros([batch_size,hidden_dim]),tf.zeros([batch_size,hidden_dim])]
@@ -151,7 +151,7 @@ print(states)
 
 
 print('-'*20, 'Test 3','-'*20)
-# tf.keras.layers.RNN을 만들어 batch로 처리.
+############## tf.keras.layers.RNN을 만들어 batch로 처리.
 rnn = tf.keras.layers.RNN(cell,return_sequences=True, return_state=True)
 
 inputs = tf.random.normal([batch_size, seq_length, feature_dim])
