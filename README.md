@@ -14,7 +14,7 @@
     * tfa.seq2seq.dynamic_decode
     * tfa.seq2seq.BahdanauAttention, tfa.seq2seq.LuongAttention
 - Decoder에서 좀 더 다양한 Sampling을 통한 output을 만들어 내기 위해서는 여러가지 Sampler를 다룰 수 있어야 한다.
-- 또한, RNNCell, Sampler를 custumization하여 User Defined RNNCell, Sampler를 만들어 보자.
+- 또한, RNNCell, Sampler를 custumization하여 User Defined RNNCell, Sampler를 만들어 보자(Custom RNNCell, Custom Sampler).
 
 
 ## 0. [Basic RNN Model](https://github.com/hccho2/Tensorflow-2-RNN-Tutorial/tree/master/0.%20Basic)
