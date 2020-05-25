@@ -84,6 +84,82 @@ decoder_outputs = decoder(decoder_inputs, initial_state=initial_state,sequence_l
 print(decoder_outputs)
 ```
 ## RNNCell 제작하기
+- Custom RNNCell은 `tf.keras.layers.Layer`를 상속받아 만드는 것이 좋다. 
+- `tf.keras.Model`을 상속받아 만드는 경우 custom cell을 `tf.keras.layers.RNN`에 넘겼을 때, Error가 발생한다.
+- __init__() 내에, `self.state_size`, `self.output_size`가 정의되어 있어야 한다.
+- 다음 Residual 구조를 가지는 custom RNNCell을 만드는 코드이다. 
+```
+import numpy as np
+import tensorflow as tf
+import tensorflow_addons as tfa
+
+class MyCell(tf.keras.layers.Layer):
+    # Residual cell
+    def __init__(self, hidden_dim):
+        super(MyCell, self).__init__(name='')
+        self.hidden_dim = hidden_dim
+        self.rnn_cell = tf.keras.layers.LSTMCell(hidden_dim)
+        
+        self.state_size = self.rnn_cell.state_size
+        self.output_size = hidden_dim  # self.rnn_cell.output_size
+
+    def call(self, inputs, states,training=None):
+        output, states = self.rnn_cell(inputs,states)
+        output = output + inputs
+        return output,states
+
+    def get_initial_state(self, inputs=None, batch_size=None, dtype=None):
+        
+        if inputs is not None:
+            batch_size = tf.shape(inputs)[0]
+            dtype = inputs.dtype
+        
+        return [tf.zeros((batch_size,self.hidden_dim),dtype=dtype), tf.zeros((batch_size,self.hidden_dim),dtype=dtype)]
+
+# User Defined cell인 MyCell test
+batch_size = 3
+seq_length = 4
+feature_dim = 7
+hidden_dim = feature_dim
 
 
+cell = MyCell(hidden_dim)   # User Defined Cell
 
+print('-'*20, 'Test 1','-'*20)
+# 1 time step 처리
+inputs = tf.random.normal([batch_size, feature_dim])
+states =  cell.get_initial_state(inputs=None, batch_size=batch_size,dtype=tf.float32)
+outputs, states = cell(inputs,states,training=True)
+print(outputs)
+print(states)
+
+
+print('-'*20, 'Test 2','-'*20)
+# 여러 step을 loop로 처리
+inputs = tf.random.normal([batch_size, seq_length, feature_dim])
+
+states =  [tf.zeros([batch_size,hidden_dim]),tf.zeros([batch_size,hidden_dim])]
+outputs_all = []
+for i in range(seq_length):
+    outputs, states = cell(inputs[:,i,:], states)
+    outputs_all.append(outputs)
+
+
+outputs_all = tf.stack(outputs_all,axis=1)
+print(outputs_all)
+print(states)
+
+
+print('-'*20, 'Test 3','-'*20)
+# tf.keras.layers.RNN을 만들어 batch로 처리.
+rnn = tf.keras.layers.RNN(cell,return_sequences=True, return_state=True)
+
+inputs = tf.random.normal([batch_size, seq_length, feature_dim])
+states = rnn.get_initial_state(inputs)
+
+whole_seq_output, final_memory_state, final_carry_state = rnn(inputs,states)
+
+print(whole_seq_output.shape, whole_seq_output)
+print(final_memory_state.shape, final_memory_state)
+print(final_carry_state.shape, final_carry_state)
+```
