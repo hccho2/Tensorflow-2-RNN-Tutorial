@@ -116,13 +116,11 @@ for i in range(sample_batch_size):
 ```
 
 ## User Defined Sampler를 만들어 보자.
-- `tensorflow_addons.seq2seq.Sampler`를 상속 받은 class를 정의한다. 그리고, 다음 psuedo code의 member function을 정의해 주면 된다.
+- `tensorflow_addons.seq2seq.Sampler`를 상속 받은 class를 정의한다. 그리고, 다음과 같이 member function을 정의해 주면 된다.
 ```
 from tensorflow_addons.seq2seq import Sampler
 
 class MySampler(Sampler):
-    # GreedyEmbeddingSampler를 만들어 보자.
-    # initializer로 넘겨받는 것들을, init에서 넘겨 받을 수도 있다.
     def __init__(self):
         ...
 
