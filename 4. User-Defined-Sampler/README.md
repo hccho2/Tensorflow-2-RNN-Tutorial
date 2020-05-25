@@ -116,6 +116,9 @@ for i in range(sample_batch_size):
 ```
 
 ## User Defined Sampler를 만들어 보자.
+- `tfa.seq2seq.CustomSampler`가 있지만, 이 API를 사용하는 것보다 직접 Sampler class를 만드는 것이 효율적이다.
+- User Defined Sampler는 왜 필요한가?
+
 - `tensorflow_addons.seq2seq.Sampler`를 상속 받은 class를 정의한다. 그리고, 다음과 같이 member function을 정의해 주면 된다.
 ```
 from tensorflow_addons.seq2seq import Sampler
