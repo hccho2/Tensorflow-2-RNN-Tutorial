@@ -123,7 +123,7 @@ else:
 sampler = tfa.seq2seq.sampler.ScheduledEmbeddingTrainingSampler(sampling_probability=0.2)
 outputs, last_state, last_sequence_lengths = decoder(..., embedding=embedding.weights)
 ```
-
+- ㅌㅌㅌ
 	* `tfa.seq2seq.ScheduledOutputTrainingSampler`: ScheduledEmbeddingTrainingSampler와 같은 방식이지만, embedding하는 부분이 없다. sampling_probability로 logit이 (embedding과정 없이) 다음 input이 되거나, 주어진 data가 그대로 다음 step의 입력값이 된다.
 
 
