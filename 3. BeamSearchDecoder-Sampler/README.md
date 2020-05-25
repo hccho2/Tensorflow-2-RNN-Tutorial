@@ -9,5 +9,9 @@
 - Encoder 없이 Decoder만 있는 Simple은 대표적인 모델로 [minimal-character model](https://gist.github.com/karpathy/d4dee566867f8291f086)이 있다. 이 모델을 더욱 단순화하여 train 후, Beam Search로 test해 보자.
 - 입력 data는 "hello"만 있다. character는 모두 6개이다. 
 ```
-{SOS_token: '<S>', 1: 'h', 2: 'e', 3: 'l', 4: 'o', EOS_token: '<E>'} 
+SOS_token = 0
+EOS_token = 5
+index_to_char = {SOS_token: '<S>', 1: 'h', 2: 'e', 3: 'l', 4: 'o', EOS_token: '<E>'}
+x_data = np.array([[SOS_token, 1, 2, 3, 3, 4]], dtype=np.int32)
+y_data = np.array([[1, 2, 3, 3, 4,EOS_token]],dtype=np.int32)
 ```
