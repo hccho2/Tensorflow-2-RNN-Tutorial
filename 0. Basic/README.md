@@ -71,6 +71,7 @@ rnn = tf.keras.layers.LSTM(4,return_sequences=True, return_state=True, name='enc
 - Multi Layer는 cell을 여러개 겹친 후, RNN에 넘겨주면 된다.
 ```
 cells = [tf.keras.layers.LSTMCell(hidden_dim),tf.keras.layers.LSTMCell(hidden_dim*2)]
+cells = tf.keras.layers.StackedRNNCells(cells)  # 이 line은 없어도 된다. tf.keras.layers.RNN에 cell list를 바로 넘겨도 된다.
 rnn = tf.keras.layers.RNN(cells,return_sequences=True)
 ``` 
 - RNN Layer를 단순히 연결하지 않고, RNN Layer사이에 Dense Layer, BatchNormalization, Dropout을 넣어야 하는 경우는 다음과 같이 처리하면 된다.
