@@ -58,6 +58,8 @@ rnn = tf.keras.layers.LSTM(4,return_sequences=True, return_state=True, name='enc
 ```
 cell = tf.keras.layers.GRUCell(hidden_dim)
 rnn = tf.keras.layers.RNN(cell,return_sequences=True)
+# 또는 
+rnn = tf.keras.layers.GRU(hidden_dim, name='gru')
 ```
 
 
