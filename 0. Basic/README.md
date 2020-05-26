@@ -53,7 +53,8 @@ rnn = tf.keras.layers.RNN(cell,return_sequences=True)
 ```
 rnn = tf.keras.layers.LSTM(4,return_sequences=True, return_state=True, name='encoder')
 ```
-
+- GRU(Gated Recurrent Unit)는 LSTM에 비해 weights 규모가 3/4인 모델이다. LSTM의 hidden state와 cell state를 merge하여 좀 더 simple하게 설계되었다.
+![decode](./GRU.png)
 
 
 
