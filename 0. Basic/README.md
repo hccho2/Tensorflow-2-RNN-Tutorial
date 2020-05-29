@@ -19,9 +19,9 @@ hidden_dim = 4
 rnn_cell = tf.keras.layers.LSTMCell(hidden_dim)  # RNN Cell
 rnn = tf.keras.layers.RNN(rnn_cell,return_sequences=True) # RNN
 
+inputs = tf.random.normal([batch_size, seq_length, input_dim])  # Embedding을 거친 data라 가정.
 initial_state =  rnn.get_initial_state(inputs)  # RNN의 initial state를 0으로 만든다. [batch_size, hidden_dim]
 
-inputs = tf.random.normal([batch_size, seq_length, input_dim])  # Embedding을 거친 data라 가정.
 outputs = rnn(inputs,initial_state)
 
 ```
