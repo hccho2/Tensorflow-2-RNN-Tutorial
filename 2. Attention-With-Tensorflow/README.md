@@ -101,3 +101,5 @@ attention_mechanism = tfa.seq2seq.LuongAttention(units=hidden_dim, memory=encode
 ```
 - Attention Mechanism에서 `memory_sequence_length`의 역할: Encoder는 같은 seqeunce 길이로 묶여서 넘어온다. 같은 길이가 되기 위해서는 padding이 붙은 data도 있을 수 있다. 이런 padding 영역에 score가 계산되지 않도록 `memory_sequence_length`를 보고, masking을 한다.
 
+## Tensorflow에서의 Attention 구현
+* attention-mechanism에서 `setup_memory`활용
