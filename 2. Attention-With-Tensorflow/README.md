@@ -33,8 +33,9 @@
 
 ## Tensorflow에서의 Attention 구현
 - `tfa.seq2seq.BahdanauAttention` 또는 `tfa.seq2seq.LuongAttention`이 있어야 하고,
-- `tfa.seq2seq.AttentionWrapper`이 있어야 하는데, 이 `tfa.seq2seq.AttentionWrapper`도 rnn cell이다. 따라서, 이것도 `tfa.seq2seq.BasicDecoder`로 넘어간다.
+- `tfa.seq2seq.AttentionWrapper`가 있어야 하는데, 이 `tfa.seq2seq.AttentionWrapper`도 rnn cell이다. 따라서, 이것도 `tfa.seq2seq.BasicDecoder`로 넘어간다.
 - Tensorflow에서의 Attention은 `Attention Mechanism`이라 불린다.
+- (`AttentionWrapper` ~ `AttentionWrapperState`) 관계는 (`BasicRNNCell` ~ `hidden_state`) 관계와 같다.
 - Addons의 `AttentionWrapperState`에 버그가 있어, 편법이 동원되었다. 
 
 ```
